@@ -12,6 +12,7 @@ class Test_ts_to_isoutc(object):
         {"input": "Nov 26 09:12:30 CEST",               "output": "2025-11-26T08:12:30+00:00"},
         {"input": "2021-11-18 09:20:37 CEST",           "output": "2021-11-18T08:20:37+00:00"},
         {"input": "Fri 26 Nov 2021 04:58:00 AM CST",    "output": "2021-11-26T10:58:00+00:00"},
+        {"input": "Fri May  2 15:06:24 CEST 2025",      "output": "2025-05-02T13:06:24+00:00"}
     ]
 
     def test_process(self):
