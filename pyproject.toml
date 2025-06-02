@@ -45,4 +45,4 @@ Repository = "https://codeberg.org/DFIR/time-tools.git"
 #Changelog = "https://github.com/sweigmann/offset-tools/blob/main/CHANGELOG.md"
 
 [project.scripts]
-ts_to_isoutc = "time_tools.ts_to_isoutc:main"
+ts_to_iso_utc = "time_tools.ts_to_iso_utc:main"

@@ -29,7 +29,7 @@ jobs:
       - name: Install project tp pipx
         run: pipx install .
       - name: Run time-tools
-        run: ts_to_isoutc --help
+        run: ts_to_iso_utc --help
       #- name: Install sphinx to build docs
       #  run: pip install sphinx mock
       #- name: Build html

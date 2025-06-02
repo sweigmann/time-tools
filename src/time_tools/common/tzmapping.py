@@ -1,6 +1,5 @@
 # flake8: noqa: E501
-# This is ts_to_isoutc for converting many kinds of timestamps
-# to UTC in ISO-8601.
+#
 #   (C) Sebastian Weigmann, 2025
 #   This software is released under:
 #   GNU GENERAL PUBLIC LICENSE, Version 3
