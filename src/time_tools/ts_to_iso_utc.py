@@ -39,7 +39,7 @@ def parse_args() -> argparse.Namespace:
     global progname
     global progver
     epilog = "Examples: " + my_progname + " 2021-11-01T13:26:06+01:00         --> 2021-11-01T12:26:06Z\n" + \
-             "          " + my_progname + " \"Nov 26 09:12:30\"                 --> 2021-11-26T09:12:30Z (assumes timestamp TZ is system TZ)\n" + \
+             "          " + my_progname + " \"2025 Nov 26 09:12:30\"                 --> 2021-11-26T09:12:30Z (assumes timestamp TZ is system TZ)\n" + \
              "          " + my_progname + " \"2021-11-18 09:20:37\"             --> 2021-11-18T09:20:37Z (assumes timestamp TZ is system TZ)\n" + \
              "          " + my_progname + " \"Fri 26 Nov 2021 04:58:00 AM CST\" --> NOT Chinese Standard Time! For Taipei time use CSTTW"
     # create the top-level parser
