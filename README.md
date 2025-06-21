@@ -48,7 +48,7 @@ This use case will allow you to calculate the delta in seconds for two given
 timestamps, for example to calculate the offset between two timelines from
 different artifacts.
 
-| younger timestamp                   | older timestamp               | command | delta [s]      |
+| older timestamp                     | younger timestamp             | command | delta [s]      |
 |-------------------------------------|-------------------------------|---------|----------------|
 | `"Fri 26 Nov 2021 04:58:00 AM CST"` | `"2025 Jun 26 09:12:30 CEST"` | `subts` |  `112997670.0` |
 
