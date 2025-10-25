@@ -71,7 +71,7 @@ class Test_ts_to_iso_utc(object):
         ts_newer = "2025 Nov 26 09:12:30 CEST"
         expected_result = "126220470.0"
         p = subprocess.run(
-            ["python3", os.path.join("src", "time_tools", "ts_to_iso_utc.py"), "subts", ts_older, ts_newer],
+            ["python3", os.path.join("src", "time_tools", "ts_to_iso_utc.py"), "subts", ts_newer, ts_older],
             capture_output=True,
             text=True,
             check=True,
@@ -81,7 +81,7 @@ class Test_ts_to_iso_utc(object):
         assert p.stdout.strip() == expected_result
         try:
             p = subprocess.run(
-                ["python3", os.path.join("src", "time_tools", "ts_to_iso_utc.py"), "subts", ts_newer, ts_older],
+                ["python3", os.path.join("src", "time_tools", "ts_to_iso_utc.py"), "subts", ts_older, ts_newer],
                 capture_output=True,
                 text=True,
                 check=True,

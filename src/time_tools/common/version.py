@@ -7,4 +7,4 @@
 #
 # global variables
 progname = "time-tools"
-progver = "0.3"
+progver = "0.3.1"

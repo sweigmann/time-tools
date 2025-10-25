@@ -29,7 +29,7 @@ except ModuleNotFoundError:
 
 # global variables
 my_progname = "ts_to_iso_utc"
-my_progver = "4"
+my_progver = "5"
 progname = my_progname + " (" + version.progname + ")"
 progver = version.progver + "-" + my_progver
 ERR.verbosity = 0
@@ -60,7 +60,7 @@ def parse_args() -> argparse.Namespace:
     parser_subts = subparsers.add_parser('subts', help='subtract: timestamp - timestamp -> seconds')
     parser_subts.add_argument('ts_younger', type=str, help='timestamp to subtract from')
     parser_subts.add_argument('ts_older', type=str, help='subtractor')
-    parser_subts.add_argument('-r', '--human-readable', action='store_true', help='return hours, minutes and seconds instead of just seconds')
+    parser_subts.add_argument('-r', '--human-readable', action='store_true', help='return days, hours, minutes and seconds instead of just seconds')
     # create the parser for "subsecs"
     parser_subsecs = subparsers.add_parser('subsecs', help='subtract: timestamp - seconds -> timestamp')
     parser_subsecs.add_argument('ts', type=str, help='timestamp to subtract from')
