@@ -29,7 +29,7 @@ except ModuleNotFoundError:
 
 # global variables
 my_progname = "ts_to_iso_utc"
-my_progver = "3"
+my_progver = "4"
 progname = my_progname + " (" + version.progname + ")"
 progver = version.progver + "-" + my_progver
 ERR.verbosity = 0
@@ -60,6 +60,7 @@ def parse_args() -> argparse.Namespace:
     parser_subts = subparsers.add_parser('subts', help='subtract: timestamp - timestamp -> seconds')
     parser_subts.add_argument('ts_younger', type=str, help='timestamp to subtract from')
     parser_subts.add_argument('ts_older', type=str, help='subtractor')
+    parser_subts.add_argument('-r', '--human-readable', action='store_true', help='return hours, minutes and seconds instead of just seconds')
     # create the parser for "subsecs"
     parser_subsecs = subparsers.add_parser('subsecs', help='subtract: timestamp - seconds -> timestamp')
     parser_subsecs.add_argument('ts', type=str, help='timestamp to subtract from')
@@ -86,16 +87,16 @@ def ts_convert(ts: str) -> str:
     return isoutctimestamp
 
 
-def ts_sub_ts(ts1: str, ts2: str) -> str:
+def ts_sub_ts(ts1: str, ts2: str) -> float:
     datetimeobj1 = parser.parse(ts1, tzinfos=TZM.tzmapping)
     datetimeobj2 = parser.parse(ts2, tzinfos=TZM.tzmapping)
     if datetimeobj2 > datetimeobj1:
-        raise ValueError("first timestamp must be older than second timestamp")
+        raise ValueError("first timestamp must be younger than second timestamp")
     utcdatetimeobj1 = datetimeobj1.astimezone(datetime.timezone.utc)
     utcdatetimeobj2 = datetimeobj2.astimezone(datetime.timezone.utc)
     ts_difference = utcdatetimeobj1 - utcdatetimeobj2
     ERR.printmsg(f"Difference: {ts_difference}", ERR.ERRLVL.DEBUG)
-    return str(ts_difference.total_seconds())
+    return ts_difference.total_seconds()
 
 
 def ts_calc_new_ts(ts: str, secs: float, op: str) -> str:
@@ -135,7 +136,12 @@ def __main() -> None:
     elif args.command == 'subts':
         mytime_o = TSP.tsparse(args.ts_older)
         mytime_y = TSP.tsparse(args.ts_younger)
-        result = ts_sub_ts(mytime_o, mytime_y)
+        delta = ts_sub_ts(mytime_y, mytime_o)
+        if args.human_readable:
+            td = str(datetime.timedelta(seconds=delta)).split(":")
+            result = f"{td[0]} hours, {int(td[1])} minutes, {int(td[2])} seconds"
+        else:
+            result = str(delta)
     elif args.command == 'subsecs':
         mytime = TSP.tsparse(args.ts)
         result = ts_sub_secs(mytime, args.secs)

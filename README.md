@@ -6,7 +6,6 @@ Collection of tools to handle timestamps
 <img src="https://github.com/sweigmann/time-tools/actions/workflows/python-linux.yml/badge.svg?branch=main">
 <img src="https://github.com/sweigmann/time-tools/actions/workflows/debian.yml/badge.svg?branch=main">
 <img src="https://github.com/sweigmann/time-tools/actions/workflows/ubuntu.yml/badge.svg?branch=main">
-<img src="https://img.shields.io/github/downloads/sweigmann/time-tools/total">
 
 ## installation:
 
